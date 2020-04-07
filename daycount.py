@@ -13,7 +13,7 @@ def onServerInfo(server, info):
 def on_info(server, info):
   if info.content.startswith('!!day set'):
     try:
-      newstartstr = re.match(r'!!day set (\S*)').groups()[0]
+      newstartstr = re.match(r'!!day set (\S*)', info.content).groups()[0]
       newstartday = datetime.datetime.strptime(newstartstr, '%Y-%m-%d')
     except:
       server.reply(info, '§cPlease enter start day as yyyy-mm-dd')
